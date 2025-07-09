@@ -10,7 +10,7 @@ from tests.helpers import ConversationFactory, generate_chat_history, get_chat_a
 
 # Initialize variables for tests
 api_key = get_chat_api_key()
-if api_key is None:
+if api_key is None and not os.getenv("KHOJ_TEST_CHAT_PROVIDER"):
     pytest.skip(
         reason="Set OPENAI_API_KEY environment variable to run tests below. Get OpenAI API key from https://platform.openai.com/account/api-keys",
         allow_module_level=True,
